@@ -159,14 +159,17 @@ class _DashboardState extends State<Dashboard> {
 
                                       SizedBox(width: Get.width / 30),
                                       Column(
+                                        mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
                                           Row(
+                                            mainAxisAlignment: MainAxisAlignment.start,
                                             children: [
                                               Text(Dash_handler.Candidatedetails.Candidatedetails_data?['data']?['FirstName']! ?? 'FirstName', style: TextStyle(fontSize: Get.width / 25)),
+                                              SizedBox(width: Get.width / 80),
                                               Text(Dash_handler.Candidatedetails.Candidatedetails_data?['data']?['LastName']! ?? 'LastName', style: TextStyle(fontSize: Get.width / 25)),
                                             ],
                                           ),
-                                          Text(Dash_handler.Candidatedetails.Candidatedetails_data?['data']?['TechName'] ?? 'TechName', style: TextStyle(color: AppColor.subcolor)),
+                                          SizedBox(width: Get.width / 2.8, child: Text(Dash_handler.Candidatedetails.Candidatedetails_data?['data']?['TechName'] ?? 'TechName', style: TextStyle(color: AppColor.subcolor))),
                                         ],
                                       ),
                                     ],
