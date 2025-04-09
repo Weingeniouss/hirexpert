@@ -20,14 +20,9 @@ class CountrylistPopController extends GetxController {
   Future<void> CountrylistPopController_fuction() async {
     try {
       isLoding.value = true;
-
-      final responce = await http.get(Uri.parse(AppUrl.CountryList), headers: {
-        API_KEY.api_key: API_KEY.key,
-        Clientip.clientip: Clientip.ip,
-      });
+      final responce = await http.get(Uri.parse(AppUrl.CountryList), headers: {API_KEY.api_key: API_KEY.key, Clientip.clientip: Clientip.ip});
       if (responce.statusCode == 200 || responce.statusCode == 201) {
-        countrylist = jsonDecode(responce.body);
-        print('countrylist data :- $countrylist');
+        countrylist = jsonDecode(responce.body); print('countrylist data :- $countrylist');
       } else {
         throw {'countrylist data :- ${responce.statusCode} , ${responce.body}'};
       }

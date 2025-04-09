@@ -17,6 +17,7 @@ class CandidatedetailsControllers_Controllrs extends GetxController {
       final responce = await http.get(Uri.parse('${AppUrl.CandidateDetails}?CandidateId=$CandidateId&Timezone=$Timezone&IsLabel=$IsLabel&CompanyId=$CompanyId'), headers: {API_KEY.api_key: API_KEY.key, Clientip.clientip: Clientip.ip, Logintoken.logintoken: Tokan ?? ''});
       if(responce.statusCode == 200 || responce.statusCode == 201){
         Candidatedetails_data = await jsonDecode(responce.body);
+        print({'${AppUrl.CandidateDetails}?CandidateId=$CandidateId&Timezone=$Timezone&IsLabel=$IsLabel&CompanyId=$CompanyId'});
         print(Candidatedetails_data);
       }else{
         throw{'Candidatedetails_data Error :- ${responce.statusCode}, ${responce.body}'};

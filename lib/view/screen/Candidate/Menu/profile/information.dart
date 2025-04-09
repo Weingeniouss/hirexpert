@@ -93,11 +93,8 @@ class Profile_info extends StatelessWidget {
                               }
                             }),
                             Obx((){
-                              if(Infoem.Candidatedetails.isLoding.value){
-                                return SizedBox();
-                              }else{
-                                return InkWell(onTap: () => Get.to(() => Setting(),duration: Duration(seconds: 1),curve: Curves.fastOutSlowIn,transition: Transition.upToDown), child: Icon(Icons.settings, color: AppColor.Button_color, size: 32));
-                              }
+                              if(Infoem.Candidatedetails.isLoding.value){return SizedBox();}
+                              else{return GestureDetector(onTap: () => Get.to(() => Setting(),duration: Duration(seconds: 1),curve: Curves.fastOutSlowIn,transition: Transition.upToDown), child: Icon(Icons.settings, color: AppColor.Button_color, size: 32));}
                             }),
                           ],
                         ),
@@ -117,10 +114,7 @@ class Profile_info extends StatelessWidget {
                         }
                       }),
                       SizedBox(height: Get.height / 50),
-                      SizedBox(
-                        height: Get.height / 1.52,
-                        child: IndexedStack(index: Tabb.selectedIndex, children: [Extra_info(), MY_Profile(), Documant_Profile()]),
-                      ),
+                      SizedBox(height: Get.height / 1.52, child: IndexedStack(index: Tabb.selectedIndex, children: [Extra_info(), MY_Profile(), Documant_Profile()])),
                     ],
                   );
                 },

@@ -465,7 +465,7 @@ class Setting extends StatelessWidget {
                                         },
                                       );
                                     },
-                                    child: const Info_Setting(info: Profile_Text.Manage_Account),
+                                    child: Info_Setting(info: Profile_Text.Manage_Account),
                                   ),
                               );
                             },

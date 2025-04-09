@@ -120,8 +120,17 @@ class AddressProvider extends GetxController {
   var Province = ''.obs;
   var city_Province = ''.obs;
 
+  var Statetrue = false.obs;
+  var Citytrue = false.obs;
 
-  var selectedProvince = ''.obs;
+  var SelectedState = ''.obs;
+  var SelectCity = ''.obs;
+
+  var SelectedStateID = ''.obs;
+  var SelectCityID = ''.obs;
+
+
+  var selectedProvince = <String, dynamic>{}.obs;
   var provinceId = ''.obs;
   var cityList = <String>[].obs;
   var selectedCityId = ''.obs;
@@ -205,13 +214,13 @@ class AddressProvider extends GetxController {
     selectedProvinceBool.value = !selectedProvinceBool.value;
   }
 
-  void setSelectedProvince(String value) {
-    selectedProvince.value = value;
-    List<String> parts = value.split(':');
-    provinceId.value = parts[0].trim();
-    cityList.value = (Countrylist.countrylist['data'][0]['ProvinceList'].firstWhere((province) => province['ProvinceId'] == provinceId.value)['CityList'] as List).map<String>((city) => "${city['CityId']} : ${city['CityName']}").toList();
-    selectedCityId.value = '';
-  }
+  // void setSelectedProvince(String value) {
+  //   selectedProvince.value = value;
+  //   List<String> parts = value.split(':');
+  //   provinceId.value = parts[0].trim();
+  //   cityList.value = (Countrylist.countrylist['data'][0]['ProvinceList'].firstWhere((province) => province['ProvinceId'] == provinceId.value)['CityList'] as List).map<String>((city) => "${city['CityId']} : ${city['CityName']}").toList();
+  //   selectedCityId.value = '';
+  // }
 
   void toggleCitySelection() {
     selectedProvinceBool.value = !selectedProvinceBool.value;
@@ -284,8 +293,8 @@ class AddressProvider extends GetxController {
       //Address
       StreetAddress: Street_Controllers!.text,
       PostCode: Post_Controllers!.text,
-      ProvinceId: provinceId.value.toString(),
-      CityId: selectedCityId.value.toString(),
+      ProvinceId: SelectedStateID.value.toString(),
+      CityId: SelectCityID.value.toString(),
 
       //Educational Details
       DegreeIdProfile: Degree_pop_ID.value,
@@ -307,7 +316,5 @@ class AddressProvider extends GetxController {
       WorkType: WorkSetup_pop_ID.value,
       JobType: JobType_pop_ID.value,
     );
-
-    ToastificationSuccess.Success(Candidatedetails.Candidatedetails_data!['data']['message'].toString());
   }
 }

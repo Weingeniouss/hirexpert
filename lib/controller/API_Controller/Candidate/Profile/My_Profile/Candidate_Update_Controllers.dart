@@ -5,7 +5,10 @@ import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:hirexpert/view/utils/API_Key.dart';
 import 'package:hirexpert/view/utils/appUrl.dart';
+import 'package:hirexpert/view/utils/common/Tostification/Toastification_error.dart';
 import 'package:http/http.dart' as http;
+
+import '../../../../../view/utils/common/Tostification/Toastification_success.dart';
 
 class CandidateUpdateControllers extends GetxController{
   var isLoding = true.obs;
@@ -91,8 +94,10 @@ class CandidateUpdateControllers extends GetxController{
       );
       if(responce.statusCode == 200 || responce.statusCode == 200){
         CandidateUpdate = jsonDecode(responce.body);
+        ToastificationSuccess.Success(CandidateUpdate['message'].toString());
         log("CandidateUpdate Suess :-  $CandidateUpdate");
       }else{
+        ToastificationError.Error(CandidateUpdate['message'].toString());
         throw{"CandidateId Data Error :- ${responce.statusCode}, ${responce.body}"};
       }
     }catch(e){"CandidateUpdate Data Error :- $e";}
