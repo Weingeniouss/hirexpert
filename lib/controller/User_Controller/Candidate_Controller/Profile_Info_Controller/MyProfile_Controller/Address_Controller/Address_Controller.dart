@@ -276,7 +276,12 @@ class AddressProvider extends GetxController {
     update();
   }
 
-  void Sentdata(){
+  void rebuildvalue() {
+    Candidatedetails.CandidatedetailsControllers_Fuction(CandidateId: Candidate, Tokan: Tokans, Timezone: 'asia/kolkata', IsLabel: '1');
+    update();
+  }
+
+  void Sentdata() {
     CandidateUpdate.CandidateUpdateControllers_Fuction(
       CandidateId: Candidate,
       Tokan: Tokans,
@@ -315,6 +320,9 @@ class AddressProvider extends GetxController {
       NoticePeriod: NoticePeriod_Controllers!.text,
       WorkType: WorkSetup_pop_ID.value,
       JobType: JobType_pop_ID.value,
-    );
+    ).then((value){
+      rebuildvalue();
+    });
+    update();
   }
 }

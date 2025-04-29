@@ -34,8 +34,7 @@ class MY_Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     final myProfile = Provider.of<My_ProfileController>(context, listen: false);
     return Container(
-      height: Get.height,
-      width: Get.width,
+      height: Get.height, width: Get.width,
       decoration: BoxDecoration(color: AppColor.Full_body_color),
       child: Obx(() {
         if (Address_hendals.Candidatedetails.isLoding.value) {AppLodings.showLoadingDialog();}
@@ -1182,6 +1181,8 @@ class MY_Profile extends StatelessWidget {
 
                   //Buttons
                   OnButtons(onTap: () => Address_hendals.Sentdata(), Button_Color: AppColor.Button_color, btn_name: Profile_Text.Buttion_name),
+
+                  SizedBox(height: Get.height / 30),
                 ],
               ),
             );
