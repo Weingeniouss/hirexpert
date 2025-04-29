@@ -88,9 +88,6 @@ class Message extends StatelessWidget {
                     child: ListView.builder(
                       itemCount: Messages.Setmag.Setmaglist_data['data'].length,
                       itemBuilder: (BuildContext context, int index) {
-                       String MSenderId = Messages.Setmag.Setmaglist_data['data'][index]['MSenderId'];
-                       String senderId = Messages.Setmag.Setmaglist_data['data'][index]['SenderId'];
-                       String receiverId = Messages.Setmag.Setmaglist_data['data'][index]['ReceiverId'];
                         return GestureDetector(
                           onTap: () => Messages.ChatList(index),
                           child: Container(

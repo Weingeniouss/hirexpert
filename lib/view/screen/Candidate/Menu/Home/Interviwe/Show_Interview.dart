@@ -96,7 +96,7 @@ class _Show_InterviweState extends State<Show_Interviwe> {
                                       ToastificationSuccess.Success('${ApplyStatus.ApplyStatusData['message']} :- ${PopMenuItem.OfferReceived}');
                                       Get.back();
                                     } else {
-                                      ToastificationError.Error(ApplyStatus.ApplyStatusData?['message'] ?? PopMenuItem.OfferReceived);
+                                      ToastificationError.Error(ApplyStatus.ApplyStatusData['message'] ?? PopMenuItem.OfferReceived);
                                     }
                                   } catch (e) {
                                     ToastificationError.Error('An error occurred: $e');
@@ -112,7 +112,7 @@ class _Show_InterviweState extends State<Show_Interviwe> {
                                       ToastificationSuccess.Success('${ApplyStatus.ApplyStatusData['message']} :- ${PopMenuItem.Hired}');
                                       Get.back();
                                     } else {
-                                      ToastificationError.Error(ApplyStatus.ApplyStatusData?['message'] ?? PopMenuItem.Hired);
+                                      ToastificationError.Error(ApplyStatus.ApplyStatusData['message'] ?? PopMenuItem.Hired);
                                     }
                                   } catch (e) {
                                     ToastificationError.Error('An error occurred: $e');
@@ -128,7 +128,7 @@ class _Show_InterviweState extends State<Show_Interviwe> {
                                       ToastificationSuccess.Success('${ApplyStatus.ApplyStatusData['message']} :- ${PopMenuItem.Not_Interested}');
                                       Get.back();
                                     } else {
-                                      ToastificationError.Error(ApplyStatus.ApplyStatusData?['message'] ?? PopMenuItem.Not_Interested);
+                                      ToastificationError.Error(ApplyStatus.ApplyStatusData['message'] ?? PopMenuItem.Not_Interested);
                                     }
                                   } catch (e) {
                                     ToastificationError.Error('An error occurred: $e');

@@ -10,12 +10,6 @@ class ProfileCertificateListController extends GetxController {
   var isLoading = false.obs;
   var profileCertificateListData = {}.obs;
 
-  @override
-  void onInit() {
-    fetchProfileCertificateList();
-    super.onInit();
-  }
-
   Future<void> fetchProfileCertificateList({String? candidateId, String? token}) async {
     isLoading.value = true;
 

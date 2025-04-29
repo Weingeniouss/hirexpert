@@ -10,6 +10,7 @@ import 'package:hirexpert/controller/API_Controller/Candidate/Profile/Profile/Re
 import 'package:hirexpert/controller/API_Controller/Candidate/Profile/Profile/add_Profile_CertificateList.dart';
 import 'package:hirexpert/controller/User_Controller/Candidate_Controller/Profile_Info_Controller/Document_Info_Controller.dart';
 import 'package:hirexpert/controller/User_Controller/Candidate_Controller/Profile_Info_Controller/Profile_Controller/certification_Add_Controller.dart';
+import 'package:hirexpert/view/screen/Candidate/Menu/profile/information.dart';
 import 'package:hirexpert/view/utils/app_String.dart';
 import 'package:hirexpert/view/utils/app_color.dart';
 import 'package:hirexpert/view/utils/app_constance.dart';
@@ -22,12 +23,14 @@ import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../../controller/User_Controller/Candidate_Controller/BottamController/MenuNavigationController.dart';
 import '../../../../app_icon.dart';
 import '../../../showpop/showdialog.dart';
 
 class Documant_Profile extends StatelessWidget {
-  final CertificationAddController Certificat = Get.put(CertificationAddController());
   Documant_Profile({super.key});
+
+  final CertificationAddController Certificat = Get.put(CertificationAddController());
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +51,7 @@ class Documant_Profile extends StatelessWidget {
                         backgroundColor: AppColor.Full_body_color,
                         elevation: 0,
                         title: Container(
-                          height: Get.height / 20,
-                          width: Get.width,
+                          height: Get.height / 20, width: Get.width,
                           decoration: BoxDecoration(border: Border(bottom: BorderSide(color: AppColor.Bottam_color))),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,8 +63,7 @@ class Documant_Profile extends StatelessWidget {
                           ),
                         ),
                         content: Container(
-                          height: Get.height / 1.5,
-                          width: Get.width,
+                          height: Get.height / 1.5, width: Get.width,
                           decoration: BoxDecoration(color: AppColor.Full_body_color),
                           child: SingleChildScrollView(
                             scrollDirection: Axis.vertical,
@@ -90,6 +91,7 @@ class Documant_Profile extends StatelessWidget {
                                         SizedBox(
                                           width: Get.width / 3,
                                           child: TextField(
+                                            keyboardType: TextInputType.number,
                                             controller: Certificat.Month_Controller,
                                             decoration: InputDecoration(
                                               suffixIcon: Icon(Icons.keyboard_arrow_down, color: AppColor.select_check_color),
@@ -102,6 +104,7 @@ class Documant_Profile extends StatelessWidget {
                                         SizedBox(
                                           width: Get.width / 3,
                                           child: TextField(
+                                            keyboardType: TextInputType.number,
                                             controller: Certificat.Year_Controller,
                                             decoration: InputDecoration(
                                               suffixIcon: Icon(Icons.keyboard_arrow_down, color: AppColor.select_check_color),
@@ -128,6 +131,7 @@ class Documant_Profile extends StatelessWidget {
                                               SizedBox(
                                                 width: Get.width / 3,
                                                 child: TextField(
+                                                  keyboardType: TextInputType.number,
                                                   controller: Certificat.Expire_Month_Controller,
                                                   decoration: InputDecoration(
                                                     suffixIcon: Icon(Icons.keyboard_arrow_down, color: AppColor.select_check_color),
@@ -140,6 +144,7 @@ class Documant_Profile extends StatelessWidget {
                                               SizedBox(
                                                 width: Get.width / 3,
                                                 child: TextField(
+                                                  keyboardType: TextInputType.number,
                                                   controller: Certificat.Expire_Year_Controller,
                                                   decoration: InputDecoration(
                                                     suffixIcon: Icon(Icons.keyboard_arrow_down, color: AppColor.select_check_color),
@@ -309,12 +314,13 @@ class Documant_Profile extends StatelessWidget {
                         actions: [
                           OnButtons(
                             onTap: () {
-                              Certificat.Add_new_Certification();
-                              intState(() {});
+                              intState(() {
+                                Certificat.Add_new_Certification();
+                              });
                             },
                             Button_Color: AppColor.Button_color,
                             btn_name: Profile_Text.Submit,
-                          )
+                          ),
                         ],
                       );
                     },
@@ -323,8 +329,7 @@ class Documant_Profile extends StatelessWidget {
               );
             },
             child: Container(
-              height: Get.height / 20,
-              width: Get.width / 3,
+              height: Get.height / 20, width: Get.width / 3,
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(Get.height / 80), color: AppColor.Button_color2),
               child: Center(
                 child: Text(Profile_Text.Add_New, style: TextStyle(color: AppColor.Full_body_color, fontSize: Get.width / 26)),
@@ -334,21 +339,17 @@ class Documant_Profile extends StatelessWidget {
 
           //Body
           body: Container(
-              height: Get.height,
-              width: Get.width,
+              height: Get.height, width: Get.width,
               decoration: BoxDecoration(color: AppColor.Full_body_color),
               child: Obx(() {
-                if (Certificat.profileController.isLoading.value) {
-                  return Center(child: Image.asset(AppLoder.infinityloder_without_background));
-                } else if (Certificat.profileController.profileCertificateListData['data'] == null || Certificat.profileController.profileCertificateListData['data'].isEmpty) {
-                  return Center(child: Lottie.asset(AppLoder.noData));
-                } else {
+                if (Certificat.profileController.isLoading.value) {return Center(child: Image.asset(AppLoder.infinityloder_without_background));}
+                else if (Certificat.profileController.profileCertificateListData['data'] == null || Certificat.profileController.profileCertificateListData['data'].isEmpty) {return Center(child: Lottie.asset(AppLoder.noData));}
+                else {
                   return ListView.builder(
                     itemCount: Certificat.profileController.profileCertificateListData['data'].length,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
-                        width: Get.width,
-                        height: Get.height / 9,
+                        width: Get.width, height: Get.height / 9,
                         color: AppColor.Full_body_color,
                         child: Column(
                           children: [
@@ -377,8 +378,7 @@ class Documant_Profile extends StatelessWidget {
                                               backgroundColor: AppColor.Full_body_color,
                                               elevation: 0,
                                               title: Container(
-                                                height: Get.height / 20,
-                                                width: Get.width,
+                                                height: Get.height / 20, width: Get.width,
                                                 decoration: BoxDecoration(border: Border(bottom: BorderSide(color: AppColor.Bottam_color))),
                                                 child: Row(
                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -390,8 +390,7 @@ class Documant_Profile extends StatelessWidget {
                                                 ),
                                               ),
                                               content: Container(
-                                                height: Get.height / 1.5,
-                                                width: Get.width,
+                                                height: Get.height / 1.5, width: Get.width,
                                                 decoration: BoxDecoration(color: AppColor.Full_body_color),
                                                 child: SingleChildScrollView(
                                                   scrollDirection: Axis.vertical,
@@ -419,6 +418,7 @@ class Documant_Profile extends StatelessWidget {
                                                               SizedBox(
                                                                 width: Get.width / 3,
                                                                 child: TextField(
+                                                                  keyboardType: TextInputType.number,
                                                                   controller: Certificat.Month_Controller,
                                                                   decoration: InputDecoration(
                                                                     suffixIcon: Icon(Icons.keyboard_arrow_down, color: AppColor.select_check_color),
@@ -431,6 +431,7 @@ class Documant_Profile extends StatelessWidget {
                                                               SizedBox(
                                                                 width: Get.width / 3,
                                                                 child: TextField(
+                                                                  keyboardType: TextInputType.number,
                                                                   controller: Certificat.Edit_Year_Controller = TextEditingController(text: Certificat.profileController.profileCertificateListData['data'][index]['IssueDate']),
                                                                   decoration: InputDecoration(
                                                                     suffixIcon: Icon(Icons.keyboard_arrow_down, color: AppColor.select_check_color),
@@ -457,6 +458,7 @@ class Documant_Profile extends StatelessWidget {
                                                                     SizedBox(
                                                                       width: Get.width / 3,
                                                                       child: TextField(
+                                                                        keyboardType: TextInputType.number,
                                                                         controller: Certificat.Expire_Month_Controller,
                                                                         decoration: InputDecoration(
                                                                           suffixIcon: Icon(Icons.keyboard_arrow_down, color: AppColor.select_check_color),
@@ -469,6 +471,7 @@ class Documant_Profile extends StatelessWidget {
                                                                     SizedBox(
                                                                       width: Get.width / 3,
                                                                       child: TextField(
+                                                                        keyboardType: TextInputType.number,
                                                                         controller: Certificat.Edit_Month_Controller = TextEditingController(text: Certificat.profileController.profileCertificateListData['data'][index]['ExpireDate']),
                                                                         decoration: InputDecoration(
                                                                           suffixIcon: Icon(Icons.keyboard_arrow_down, color: AppColor.select_check_color),
@@ -607,8 +610,7 @@ class Documant_Profile extends StatelessWidget {
                                                                         borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width / 60),
                                                                         color: AppColor.Button_color,
                                                                       ),
-                                                                      child: (Certificat.selectedImage == null)
-                                                                          ? Center(
+                                                                      child: (Certificat.selectedImage == null) ? Center(
                                                                         child: TextButton(
                                                                           onPressed: Certificat.pickimage,
                                                                           child: Text(Profile_Text.Choose_File, textAlign: TextAlign.center, style: TextStyle(color: AppColor.Full_body_color, fontWeight: FontWeight.w600)),
@@ -669,23 +671,9 @@ class Documant_Profile extends StatelessWidget {
                                         actions: [
                                           Row(
                                             children: [
-                                              OnButtons_short(
-                                                onTap: () => Get.back(),
-                                                width: Get.width / 3,
-                                                btn_name: 'Cancel',
-                                                Border_color: AppColor.offButton_color,
-                                                btn_color: AppColor.offButton_color,
-                                                text_color: AppColor.subcolor,
-                                              ),
+                                              OnButtons_short(onTap: () => Get.back(), width: Get.width / 3, btn_name: 'Cancel', Border_color: AppColor.offButton_color, btn_color: AppColor.offButton_color, text_color: AppColor.subcolor,),
                                               SizedBox(width: Get.width / 50),
-                                              OnButtons_short(
-                                                onTap: () => Certificat.Remove_Certification(index),
-                                                width: Get.width / 3,
-                                                btn_name: 'Delete',
-                                                Border_color: AppColor.Error_color,
-                                                btn_color: AppColor.Error_color,
-                                                text_color: AppColor.Full_body_color,
-                                              ),
+                                              OnButtons_short(onTap: () => Certificat.Remove_Certification(index), width: Get.width / 3, btn_name: 'Delete', Border_color: AppColor.Error_color, btn_color: AppColor.Error_color, text_color: AppColor.Full_body_color),
                                             ],
                                           )
                                         ]);
@@ -700,7 +688,8 @@ class Documant_Profile extends StatelessWidget {
                     },
                   );
                 }
-              })),
+              })
+          ),
         );
       },
     );

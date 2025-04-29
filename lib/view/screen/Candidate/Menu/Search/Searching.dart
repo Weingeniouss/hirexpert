@@ -1,4 +1,4 @@
-// ignore_for_file: invalid_use_of_protected_member, camel_case_types, non_constant_identifier_names, deprecated_member_use
+// ignore_for_file: invalid_use_of_protected_member, camel_case_types, non_constant_identifier_names, deprecated_member_use, collection_methods_unrelated_type
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -45,7 +45,7 @@ class _Searching_finding_screenState extends State<Searching_finding_screen> {
             if(isfinding.isLoding.value){return Center(child: Lottie.asset(AppLoder.noData));}
             else{
               return ListView.builder(
-            itemCount: (isfinding.Fidingdata.value?.length ?? 0) + 1,
+            itemCount: (isfinding.Fidingdata.value.length) + 1,
             itemBuilder: (BuildContext context, int index) {
               if (index >= isfinding.Fidingdata.value.length) {return Container();}
               var jobData = isfinding.Fidingdata.value[index];

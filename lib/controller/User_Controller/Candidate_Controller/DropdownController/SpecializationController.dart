@@ -3,8 +3,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../../../../view/utils/app_constance.dart';
-import '../../../API_Controller/Candidate/Collction/Poppup/candidateTech.dart';
 
 class Specializationcontroller with ChangeNotifier {
   bool _jobdescirbe = false;

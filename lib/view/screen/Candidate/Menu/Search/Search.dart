@@ -55,7 +55,7 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   @override
   void initState() {
-    Paggnation.searchData ?? [];
+    Paggnation.searchData;
     Paggnation.resetPagination();
     super.initState();
   }
@@ -182,7 +182,7 @@ class _SearchState extends State<Search> {
             onRefresh: () => Paggnation.resetPagination(),
             child: ListView.builder(
                   controller : Paggnation.scrollController,
-                  itemCount: (Paggnation.searchData.length ?? 0) + 1,
+                  itemCount: (Paggnation.searchData.length) + 1,
                   itemBuilder: (BuildContext context, int index) {
 
                     if (index == Paggnation.searchData.length) {
@@ -192,7 +192,6 @@ class _SearchState extends State<Search> {
                     }
 
                     var jobData = Paggnation.searchData[index];
-                    bool isFavourite = (jobData['IsFavourite']?.toString() ?? "0") == "1";
                     var Jobbing = Paggnation.searchData[index]['JobId'];
 
                     return JobSearch(

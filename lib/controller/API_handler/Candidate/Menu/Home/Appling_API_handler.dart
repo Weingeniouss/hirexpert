@@ -57,7 +57,7 @@ class Appling_Handaling extends GetxController {
             ToastificationSuccess.Success(Withdrow.WithdrowApplicationdata['message']);
             Get.back();
           } else {
-            ToastificationError.Error(Withdrow.WithdrowApplicationdata?['message'] ?? "Failed to withdraw application.");
+            ToastificationError.Error(Withdrow.WithdrowApplicationdata['message'] ?? "Failed to withdraw application.");
           }
         } catch (e) {
           ToastificationError.Error("An error occurred: $e");
@@ -75,7 +75,7 @@ class Appling_Handaling extends GetxController {
             ToastificationSuccess.Success('${ApplyStatus.ApplyStatusData['message']} :- interviewing');
             Get.back();
           }else{
-            ToastificationError.Error('${ApplyStatus.ApplyStatusData?['message']} ?? "Failed to Interviewing."');
+            ToastificationError.Error('${ApplyStatus.ApplyStatusData['message']} ?? "Failed to Interviewing."');
           }
         } catch(e){
           ToastificationError.Error('An error occurred: $e');
@@ -93,7 +93,7 @@ class Appling_Handaling extends GetxController {
             ToastificationSuccess.Success('${ApplyStatus.ApplyStatusData['message']} :- Offer Receiverd');
             Get.back();
           }else{
-            ToastificationError.Error(ApplyStatus.ApplyStatusData?['message'] ?? "Failed to Offer Receiverd.");
+            ToastificationError.Error(ApplyStatus.ApplyStatusData['message'] ?? "Failed to Offer Receiverd.");
           }
         } catch(e){
           ToastificationError.Error('An error occurred: $e');
@@ -111,7 +111,7 @@ class Appling_Handaling extends GetxController {
             ToastificationSuccess.Success('${ApplyStatus.ApplyStatusData['message']} :- Hired');
             Get.back();
           }else{
-            ToastificationError.Error(ApplyStatus.ApplyStatusData?['message'] ?? "Failed to Hired.");
+            ToastificationError.Error(ApplyStatus.ApplyStatusData['message'] ?? "Failed to Hired.");
           }
         } catch(e){
           ToastificationError.Error('An error occurred: $e');
@@ -129,7 +129,7 @@ class Appling_Handaling extends GetxController {
             ToastificationSuccess.Success('${ApplyStatus.ApplyStatusData['message']} :- Not Interested');
             Get.back();
           }else{
-            ToastificationError.Error(ApplyStatus.ApplyStatusData?['message'] ?? "Failed to Not Interested.");
+            ToastificationError.Error(ApplyStatus.ApplyStatusData['message'] ?? "Failed to Not Interested.");
           }
         } catch(e){
           ToastificationError.Error('An error occurred: $e');
@@ -147,7 +147,7 @@ class Appling_Handaling extends GetxController {
             ToastificationSuccess.Success('${ApplyStatus.ApplyStatusData['message']} :- Not Selected by Employer');
             Get.back();
           }else{
-            ToastificationError.Error(ApplyStatus.ApplyStatusData?['message'] ?? "Failed to Not Selected by Employer.");
+            ToastificationError.Error(ApplyStatus.ApplyStatusData['message'] ?? "Failed to Not Selected by Employer.");
           }
         } catch(e){
           ToastificationError.Error('An error occurred: $e');

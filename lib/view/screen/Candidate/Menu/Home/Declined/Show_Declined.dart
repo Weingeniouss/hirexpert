@@ -3,8 +3,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hirexpert/controller/API_handler/Candidate/Menu/Home/Declined_API_hendler.dart';
-import 'package:hirexpert/controller/API_handler/Candidate/Menu/Search/SarchHndaler_Conteroller.dart';
 import 'package:hirexpert/view/utils/app_loder.dart';
 import 'package:hirexpert/view/utils/common/List/jobSearch.dart';
 import 'package:lottie/lottie.dart';
@@ -79,7 +77,7 @@ class _Show_DeclinedState extends State<Show_Declined> {
       body: Obx(() {
         if (Decline.isLoding.value) {AppLodings.showLoadingDialog();}
         else {if (Get.isDialogOpen == true) {Get.back();}}
-        if (Decline.OfferData['data']  == null) {return Scaffold(body: Container(height: Get.height, width: Get.width, decoration: BoxDecoration(color: AppColor.Full_body_color), child: Center(child: Lottie.asset(AppLoder.noData))));;}
+        if (Decline.OfferData['data']  == null) {return Scaffold(body: Container(height: Get.height, width: Get.width, decoration: BoxDecoration(color: AppColor.Full_body_color), child: Center(child: Lottie.asset(AppLoder.noData))));}
         else {
         return Container(
           height: Get.height, width: Get.width, decoration: BoxDecoration(color: AppColor.Full_body_color),

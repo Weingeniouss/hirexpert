@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, non_constant_identifier_names, camel_case_types, deprecated_member_use, prefer_const_constructors_in_immutables, must_be_immutable, prefer_typing_uninitialized_variables
+// ignore_for_file: avoid_print, non_constant_identifier_names, camel_case_types, deprecated_member_use, prefer_const_constructors_in_immutables, must_be_immutable, prefer_typing_uninitialized_variables, invalid_use_of_protected_member
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
@@ -247,9 +247,10 @@ class MY_Profile extends StatelessWidget {
                           GestureDetector(
                             onTap: () => myProfile.Address_fun(),
                             child: Obx(() => Info(
-                                CircleAvatar_color: Change_Circle(Condition: Address_hendals.Street_Controllers!.text.isNotEmpty && Address_hendals.Post_Controllers!.text.isNotEmpty && Address_hendals.selectedProvince.value!.isNotEmpty && Address_hendals.selectedCityId.value.isNotEmpty || candidateData['ProvinceName'].toString().isNotEmpty || candidateData['CityName'].toString().isNotEmpty),
+                                CircleAvatar_color: Change_Circle(Condition: Address_hendals.Street_Controllers!.text.isNotEmpty && Address_hendals.Post_Controllers!.text.isNotEmpty && Address_hendals.selectedProvince.value.isNotEmpty && Address_hendals.selectedCityId.value.isNotEmpty || candidateData['ProvinceName'].toString().isNotEmpty || candidateData['CityName'].toString().isNotEmpty),
                                 info: Profile_Text.Address,
-                                dropicons: DropIcons(conditional_name: myProfile.Address)),
+                                dropicons: DropIcons(conditional_name: myProfile.Address)
+                              ),
                             ),
                           ),
                           Visibility(
@@ -1034,7 +1035,7 @@ class MY_Profile extends StatelessWidget {
                                   labal: Profile_Text.Current_CTC_per_annum,
                                   hint: candidateData['CurrentCTC'],
                                   controller: Address_hendals.CurrentSalarywork_Controllers!,
-                                  onTap: () {myProfile.P_CTC_Current_fun();},
+                                  onTap: () => myProfile.P_CTC_Current_fun(),
                                   onChanged: (val) {myProfile.P_CTC_Currents_validation(val);},
                                 ),
                                 MyProfile_Error(throww: myProfile.onthrowError, Error: myProfile.P_CTC_Currents),
@@ -1058,7 +1059,7 @@ class MY_Profile extends StatelessWidget {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         SizedBox(height: Get.height / 70),
-                                        // Text((Address_hendals.selectedProvince.value.isNotEmpty) ? Address_hendals.selectedProvince.value.split(' : ')[1] : candidateData['ProvinceName'], style: TextStyle(fontSize: Get.width / 23)),
+                                        Text(Address_hendals.selectedProvince.value.isNotEmpty ? Address_hendals.selectedProvince.value['name'] : candidateData['ProvinceName'], style: TextStyle(fontSize: Get.width / 23)),
                                       ],
                                     ),
                                   ),

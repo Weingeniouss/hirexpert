@@ -371,7 +371,7 @@ class _DetailsState extends State<Details> {
 
                                   //Related Vacancies
                                   CarouselSlider.builder(
-                                      itemCount: Paggnation.searchData.length ?? 0,
+                                      itemCount: Paggnation.searchData.length,
                                       itemBuilder: (context, index, realIndex) {
                                         return Container(
                                           width: Get.width,
@@ -859,7 +859,7 @@ Widget OfferLetter(context) {
                         ToastificationSuccess.Success('${ApplyStatus.ApplyStatusData['message']} :- ${PopMenuItem.Not_Interested}');
                         Get.back();
                       } else {
-                        ToastificationError.Error(ApplyStatus.ApplyStatusData?['message'] ?? PopMenuItem.Not_Interested);
+                        ToastificationError.Error(ApplyStatus.ApplyStatusData['message'] ?? PopMenuItem.Not_Interested);
                       }
                     } catch (e) {
                       ToastificationError.Error('An error occurred: $e');

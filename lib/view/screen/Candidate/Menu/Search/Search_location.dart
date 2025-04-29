@@ -235,7 +235,6 @@ class _Search_locationState extends State<Search_location> {
                                 if (index >= Serachfinding.isfinding.Fidingdata.value['data'].length) {return Container();}
 
                                 var jobData = Serachfinding.isfinding.Fidingdata.value['data'][index];
-                                var isFavourite = jobData['IsFavourite'] == "1";
                                 var Jobbing = jobData['JobId'];
 
                                 return JobSearch(
@@ -330,7 +329,6 @@ class _Search_locationState extends State<Search_location> {
                                 if (index >= Serachfinding.isfinding.Fidingdata.value['data'].length) {return Container();}
 
                                 var jobData = Serachfinding.isfinding.Fidingdata.value['data'][index];
-                                var isFavourite = jobData['IsFavourite'] == "1";
                                 var Jobbing = jobData['JobId'];
                                 return JobSearch(
                                   onTap: () {
@@ -883,8 +881,6 @@ class GlobalofselectedExperienceController extends GetxController {
   void onClose() {selectedExperience.value = '';super.onClose();}
   void dispose() {selectedExperience.value = '';super.dispose();}
 
-  @override
-  InternalFinalCallback<void> get onDelete =>  super.onDelete;
 }
 
 // Commen Widget's
@@ -930,8 +926,6 @@ class GlobalController extends GetxController {
   void onClose() {selectedWork.value = '';super.onClose();}
   void dispose() {selectedWork.value = '';super.dispose();}
 
-  @override
-  InternalFinalCallback<void> get onDelete => super.onDelete;
 }
 
 Widget WorkSetups() {

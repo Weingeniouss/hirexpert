@@ -56,6 +56,10 @@ class CertificationAddController extends GetxController{
     super.onInit();
   }
 
+  void rebuildpage() {
+    profileController.fetchProfileCertificateList(candidateId: Candidate, token: Tokans);
+  }
+
   TextEditingController Certificate = TextEditingController();
 
   void Add_new_Certification(){
@@ -66,12 +70,13 @@ class CertificationAddController extends GetxController{
       IssueDate: Year_Controller.text,
       Title: Certificate.text,
       CertNum: Certificate.text,
-    );
-    if (Add.AddProfileCertificatelist_data != null && Add.AddProfileCertificatelist_data['status'] == true) {
-      ToastificationSuccess.Success(Add.AddProfileCertificatelist_data['message']);
-    } else {
-      ToastificationError.Error(Add.AddProfileCertificatelist_data?['message'] ?? 'An error occurred');
-    }
+      ImageType: '0',
+      ImageUrl: 'szxdgbzsdg',
+      Image: 'zsljdhgbzshbd.png'
+    ).then((val){
+      rebuildpage();
+    });
+
     Get.back();
     update();
   }
@@ -84,7 +89,9 @@ class CertificationAddController extends GetxController{
       ExpireDate: Edit_Year_Controller.text,
       IssueDate: Edit_Year_Controller.text,
       Title: Edit_Certificate_Controller.text,
-    );
+    ).then((val){
+      rebuildpage();
+    });
 
     Get.back();
   }
@@ -93,12 +100,15 @@ class CertificationAddController extends GetxController{
     await Remove.RemoveProfileCerticatelist_fuction(
       CertId: profileController.profileCertificateListData['data'][index]['CertId'],
       Tokan: Tokans,
-    );
+    ).then((val){
+      rebuildpage();
+    });
     if (Remove.RemoveProfileCertication_data != null && Remove.RemoveProfileCertication_data['status'] == true) {
       ToastificationSuccess.Success(Remove.RemoveProfileCertication_data['message']);
     } else {
       ToastificationError.Error(Remove.RemoveProfileCertication_data?['message'] ?? 'An error occurred');
     }
+
     update();
     Get.back();
   }
